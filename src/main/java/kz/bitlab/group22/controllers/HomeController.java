@@ -44,6 +44,8 @@ public class HomeController {
 
         DBManager.addItem(new Items(null, name,  price, shopName));
 
+        String text = "Ilyas";
+
         return "redirect:/index?success";
     }
 
