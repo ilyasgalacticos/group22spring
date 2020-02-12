@@ -8,9 +8,7 @@
         <%@include file="templates/head.jsp"%>
     </head>
     <body>
-
         <div class="container mt-5">
-
             <div class="row mb-3">
                 <div class="col-sm-6 offset-3">
                     <%
@@ -68,6 +66,9 @@
                         <th>
                             PRICE
                         </th>
+                        <th>
+                            DETAILS
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -77,6 +78,9 @@
                             <td>${item.name}</td>
                             <td>${item.shop}</td>
                             <td>${item.price} KZT</td>
+                            <td>
+                                <a href="/details/${item.id}" class="btn btn-info">DETAILS</a>
+                            </td>
                         </tr>
                     </ilyas:forEach>
                 </tbody>

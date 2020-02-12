@@ -66,6 +66,9 @@
                         <th>
                             PRICE
                         </th>
+                        <th>
+                            DETAILS
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,6 +78,9 @@
                             <td>${item.name}</td>
                             <td>${item.shop}</td>
                             <td>${item.price} KZT</td>
+                            <td>
+                                <a href="/details/${item.id}" class="btn btn-info">DETAILS</a>
+                            </td>
                         </tr>
                     </ilyas:forEach>
                 </tbody>

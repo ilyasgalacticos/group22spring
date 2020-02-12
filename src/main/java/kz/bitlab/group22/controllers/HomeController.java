@@ -4,14 +4,12 @@ import kz.bitlab.group22.db.DBManager;
 import kz.bitlab.group22.db.Items;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
 @Controller
-//@RequestMapping(value = "/myapp")
+@RequestMapping(value = "/archive")
 public class HomeController {
 
     @RequestMapping(path = {"/", "/index", "/home", "/index.html"}, method = RequestMethod.GET)
@@ -47,6 +45,22 @@ public class HomeController {
         String text = "Ilyas";
 
         return "redirect:/index?success";
+    }
+
+    @GetMapping(path = "/details/{itemId}")
+    public String details(Model model, @PathVariable(name = "itemId") Long id){
+
+        Items item = DBManager.getItem(id);
+        model.addAttribute("item", item);
+
+        ArrayList<String> shops = new ArrayList<>();
+        shops.add("Toi Mart");
+        shops.add("My Mart");
+        shops.add("Magnum");
+        model.addAttribute("shopCenters", shops);
+
+        return "details";
+
     }
 
 }
