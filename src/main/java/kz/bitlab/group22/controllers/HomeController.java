@@ -1,7 +1,10 @@
 package kz.bitlab.group22.controllers;
 
+import kz.bitlab.group22.beans.FirstBeanInterface;
+import kz.bitlab.group22.db.DBConnection;
 import kz.bitlab.group22.db.DBManager;
 import kz.bitlab.group22.db.Items;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +14,12 @@ import java.util.ArrayList;
 @Controller
 @RequestMapping(value = "/archive")
 public class HomeController {
+
+    @Autowired
+    private FirstBeanInterface myFirstBean;
+
+    @Autowired
+    private DBConnection connection;
 
     @RequestMapping(path = {"/", "/index", "/home", "/index.html"}, method = RequestMethod.GET)
     public String index(Model model){
@@ -24,6 +33,8 @@ public class HomeController {
         shops.add("Magnum");
         model.addAttribute("shopCenters", shops);
         // request.setAttribute("items", items);
+
+        System.out.println(myFirstBean.getData());
 
         return "home";
     }

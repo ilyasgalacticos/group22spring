@@ -7,6 +7,9 @@
     </head>
     <body>
         <div class="container mt-5">
+            <h1>
+                ${userData}
+            </h1>
             <a href="/addblog" class="btn btn-success">ADD BLOG</a>
             <br>
             <br>
@@ -27,7 +30,6 @@
                             <a class="btn btn-primary btn-sm" href="/readblog/${b.id}/${b.latinUrl}.html" role="button">Read more</a>
                         </div>
                     </c:forEach>
-
                 </div>
             </div>
         </div>

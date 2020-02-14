@@ -1,11 +1,16 @@
 package kz.bitlab.group22.db;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+@Component
+@Scope("singleton")
 public class DBConnection {
 
     private Connection connection;
@@ -13,6 +18,8 @@ public class DBConnection {
     public DBConnection(){
 
         try{
+
+            System.out.println("CONNECTING TO DB");
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/group22_db?serverTimezone=UTC", "root", "");
