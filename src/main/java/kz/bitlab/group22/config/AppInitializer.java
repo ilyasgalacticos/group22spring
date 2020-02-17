@@ -6,7 +6,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{WebMVCConfig.class, BeansConfig.class};
+        return new Class[]{WebMVCConfig.class, BeansConfig.class, HibernateConfig.class};
     }
 
     @Override

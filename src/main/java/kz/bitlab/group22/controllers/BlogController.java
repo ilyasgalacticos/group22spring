@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @Controller
+@RequestMapping(path = "/newArchive")
 public class BlogController {
 
     @Autowired
